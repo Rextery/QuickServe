@@ -13,10 +13,15 @@ def Admin():
 
 @app.route('/Productos',methods=['POST'])
 def create_Productos():
+    
+
+
+
+
     print(request.json)
     
-    return {'message': 'received'
-            
-            }
+    return {'message': 'received'}
+
+
 if __name__ == "__main__":
     app.run(debug=True)
