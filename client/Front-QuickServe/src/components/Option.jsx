@@ -1,6 +1,6 @@
-function Option({ key,formData, handleChange }) {
+function Option({ formData, handleChange }) {
     return (
-      <div key={key}>
+      <div>
         <h2 className="text-2xl font-bold mb-4">Agregar opciones</h2>
         <div className="mb-6">
           <label className="block text-sm font-medium text-gray-700">

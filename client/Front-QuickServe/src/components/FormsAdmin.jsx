@@ -3,6 +3,7 @@ import FormProduct from "./FormProduct";
 import FormOption from "./FromOption";
 import FormComponets from "./FormComponets";
 import FormToppings from "./FormToppings";
+import { Navigate } from 'react-router-dom';
 
 function FormsAdmin() {
   const [step, setStep] = useState(1);
@@ -24,7 +25,7 @@ function FormsAdmin() {
       case 4:
         return <FormToppings onNext={handleNext} />;
       default:
-        return console.log(data);
+        return <Navigate to="/admin" />;
     }
   };
 
