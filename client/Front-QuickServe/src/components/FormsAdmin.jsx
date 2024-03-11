@@ -42,7 +42,7 @@ function FormsAdmin() {
         <div className="text-lg font-bold mb-10">Usuario: Nombre Usuario</div>
 
         <Link
-          to="/admin/CrearProducto"
+          to="/admin"
           className="block py-2 px-4 text-white hover:bg-gray-700"
         >
           Inicio
