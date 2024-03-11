@@ -48,12 +48,12 @@ const Card = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
+      <div className="grid gap-x-8 gap-y-8 grid-cols-1 lg:grid-cols-2">
         {ImagesGlasses.map((glasses) => (
           <div
             key={glasses.id}
             href="#"
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 max-w-xs"
+            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-200 transition duration-300 max-w-[23rem]"
             onClick={() => openModal(glasses)}
           >
             <img
