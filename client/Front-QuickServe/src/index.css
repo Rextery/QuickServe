@@ -3,10 +3,25 @@
 @tailwind utilities;
 
 body {
-    background-image: url('/background.webp');
-    background-size: cover;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
+  background-image: url("/background.webp");
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Arial", sans-serif;
+}
+
+.container {
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+
+.mt-16 {
+  margin-top: 3rem; /* Puedes ajustar el valor según tu preferencia */
+}
+
+/* @media (min-width: 768px) {
+  .container {
+    max-width: none;
   }
-  
+} */
