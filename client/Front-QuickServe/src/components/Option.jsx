@@ -10,9 +10,12 @@ function Option({ formData, handleChange }) {
             type="text"
             name="nombre_opcion"
             id="nombre_opcion"
+            pattern="[A-Za-z0-9\s]+"
+            title="Ingrese solo letras y números, sin caracteres especiales"
             value={formData.nombre_opcion}
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 rounded-md shadow-sm border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm"
+            required
           />
         </div>
         <div className="mb-6">
@@ -22,6 +25,8 @@ function Option({ formData, handleChange }) {
           <textarea
             name="descripcion_opcion"
             id="descripcion_opcion"
+            pattern="[A-Za-z0-9\s]+"
+            title="Ingrese solo letras y números, sin caracteres especiales"
             value={formData.descripcion_opcion}
             onChange={handleChange}
             rows="3"
@@ -36,9 +41,12 @@ function Option({ formData, handleChange }) {
             type="number"
             name="precio_opcion"
             id="precio_opcion"
+            min={0}
+            max={500000}
             value={formData.precio_opcion}
             onChange={handleChange}
             className="mt-1 block w-full px-3 py-2 rounded-md shadow-sm border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm"
+            required
           />
         </div>
         <div className="mb-6">
@@ -46,7 +54,7 @@ function Option({ formData, handleChange }) {
             Url de la imagen
           </label>
           <input
-            type="text"
+            type="url"
             name="src"
             id="src"
             value={formData.src}

@@ -10,9 +10,12 @@ function Complement({ formData, handleChange }) {
         <input
           type="text"
           name="nombre_Componente"
+          pattern="[A-Za-z0-9\s]+"
+          title="Ingrese solo letras y números, sin caracteres especiales"
           value={formData.nombre_Componente}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 rounded-md shadow-sm border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm"
+          required
         />
       </div>
       <div className="mb-6">
@@ -25,6 +28,8 @@ function Complement({ formData, handleChange }) {
         <textarea
           name="descripcion"
           id="descripcion"
+          pattern="[A-Za-z0-9\s]+"
+          title="Ingrese solo letras y números, sin caracteres especiales"
           value={formData.descripcion}
           onChange={handleChange}
           rows="3"

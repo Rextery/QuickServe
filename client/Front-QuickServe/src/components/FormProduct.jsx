@@ -33,9 +33,12 @@ function FormProduct({ onNext }) {
           type="text"
           name="nombre_producto" 
           id="nombre_producto"
+          pattern="[A-Za-z0-9\s]+"
+          title="Ingrese solo letras y números, sin caracteres especiales"
           value={formData.nombre_producto}
           onChange={handleChange}
           className="mt-1 block w-full px-3 py-2 rounded-md shadow-sm border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm"
+          required
         />
       </div>
       <button

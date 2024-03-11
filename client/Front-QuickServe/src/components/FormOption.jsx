@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Option from "./Option";
 
-function FormOption({ onNext }) {
+function FormOption({ onNext, onback }) {
   const [listaOpciones, setListaOpciones] = useState({});
 
   const handleSubmit = (e) => {
@@ -14,20 +14,27 @@ function FormOption({ onNext }) {
     const newIndex = Object.keys(listaOpciones).length;
     setListaOpciones({
       ...listaOpciones,
-      [newIndex]: { nombre_opcion: "", descripcion_opcion: "", precio_opcion: "", src: "" }
+      [newIndex]: {
+        nombre_opcion: "",
+        descripcion_opcion: "",
+        precio_opcion: "",
+        src: "",
+      },
     });
   };
 
   const handleOptionChange = (index, optionData) => {
     setListaOpciones({
       ...listaOpciones,
-      [index]: optionData
+      [index]: optionData,
     });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1 className="text-2xl font-bold mb-4">Crea las opciones de tu producto</h1>
+      <h1 className="text-2xl font-bold mb-4">
+        Crea las opciones de tu producto
+      </h1>
       {Object.keys(listaOpciones).map((key) => (
         <Option
           key={key}
@@ -50,6 +57,13 @@ function FormOption({ onNext }) {
         className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Continuar
+      </button>
+      <button
+        type="button"
+        onClick={onback}
+        className="inline-block bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+      >
+        Atras
       </button>
     </form>
   );
