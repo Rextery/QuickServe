@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Topping from "./Topping";
 
-function FormToppings({ onNext, onback }) {
+function FormToppings({ onNext, onback, send }) {
   const [listaToppings, setListaToppings] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onNext({ ListaToppings: listaToppings });
-    console.log(listaToppings);
+    send();
   };
 
   const addTopping = () => {
@@ -52,7 +52,7 @@ function FormToppings({ onNext, onback }) {
         type="submit"
         className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Submit
+        enviar
       </button>
       <button
         type="button"

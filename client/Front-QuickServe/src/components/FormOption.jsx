@@ -3,6 +3,7 @@ import Option from "./Option";
 
 function FormOption({ onNext, onback }) {
   const [listaOpciones, setListaOpciones] = useState({});
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ function FormOption({ onNext, onback }) {
         nombre_opcion: "",
         descripcion_opcion: "",
         precio_opcion: "",
-        src: "",
+        src: null,
       },
     });
   };
@@ -28,6 +29,20 @@ function FormOption({ onNext, onback }) {
       ...listaOpciones,
       [index]: optionData,
     });
+  };
+
+  const handleFileChange = (index, file) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setListaOpciones({
+        ...listaOpciones,
+        [index]: {
+          ...listaOpciones[index],
+          src: reader.result.split(',')[1],
+        },
+      });
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -43,6 +58,7 @@ function FormOption({ onNext, onback }) {
             const { name, value } = e.target;
             handleOptionChange(key, { ...listaOpciones[key], [name]: value });
           }}
+          handleChangeSrc={(e) => handleFileChange(key, e.target.files[0])}
         />
       ))}
       <button

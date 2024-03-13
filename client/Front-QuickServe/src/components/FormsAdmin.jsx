@@ -5,6 +5,8 @@ import FormComponets from "./FormComponets";
 import FormToppings from "./FormToppings";
 import { Navigate, Link } from "react-router-dom";
 
+const backendUrl = "http://localhost:5000";
+
 function FormsAdmin() {
   const [step, setStep] = useState(1);
   const [data, setData] = useState({});
@@ -21,6 +23,24 @@ function FormsAdmin() {
     setStep(step - 1);
   };
 
+  const handleSend = () => {
+    fetch(`${backendUrl}/Productos`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // Maneja la respuesta del backend aquí
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        // Maneja los errores aquí
+      });
+  };
   const renderForm = () => {
     switch (step) {
       case 1:
@@ -30,9 +50,10 @@ function FormsAdmin() {
       case 3:
         return <FormComponets onNext={handleNext} onback={handleBack} />;
       case 4:
-        return <FormToppings onNext={handleNext} onback={handleBack} />;
+        return <FormToppings onNext={handleNext} onback={handleBack} send={handleSend} />;
       default:
-        return console.log(data);
+        
+        return null;
     }
   };
 
